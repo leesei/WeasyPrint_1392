@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>{{ context.target }}</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      {% for batch in context.codes | batch(10, '') %}
+      <!-- front page -->
+      {% for code in batch %}
+      <section class="ticket">
+        <div class="content">
+          <img class="logo" src="./logo.png" />
+          <div class="title">Token</div>
+          <div class="subtitle">{{ context.school }}</div>
+          <code class="code">{{ code }}</code>
+        </div>
+      </section>
+      {% endfor %}
+      <!-- back page -->
+      {% for n in range(10) %}
+      <section class="ticket">
+        <div class="content">
+          <div class="title">Instructions</div>
+          <div>Visit this link in browser</div>
+          <code class="url">https://google.com</code>
+          <div class="qrcode">
+            <span>Or scan QR code</span>
+            <img src="./qrcode.png" />
+          </div>
+          <div>Then input the 6 character <u>Token</u> to enter</div>
+        </div>
+      </section>
+      {% endfor %} {% endfor %}
+    </main>
+  </body>
+</html>
