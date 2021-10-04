@@ -1,2 +1,2 @@
-weasyprint==52.5
+weasyprint==53.3
 jinja2==3.0.1
